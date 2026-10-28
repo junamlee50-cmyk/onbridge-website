@@ -5,3 +5,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 /* Preserve the full brand styling scene at every viewport. */
 .hero-visual img{object-fit:contain;background:#e9dfcd}
+
+.company-contact{margin-top:30px}.company-name{font-size:15px;font-weight:600}.company-contact dl{font-size:12px;margin:15px 0 0}.company-contact dl>div{display:flex;gap:15px;margin:9px 0}.company-contact dt{width:62px;color:#b6c0c8;flex-shrink:0}.company-contact dd{margin:0}.company-contact a:hover{text-decoration:underline}.footer-company{font-size:11px;color:var(--muted);margin:0 0 24px;display:flex;gap:8px 22px;flex-wrap:wrap}.footer-company strong{color:var(--navy);font-weight:500}.footer-company p{width:100%}.footer-company a:hover{text-decoration:underline}@media(max-width:760px){.company-contact dl{font-size:11px}.footer-company{font-size:10px;gap:8px 16px}}
