@@ -15,6 +15,13 @@
       "when": 1793254151470,
       "tag": "0001_large_cardiac",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793254915703,
+      "tag": "0002_tranquil_silver_fox",
+      "breakpoints": true
     }
   ]
 }

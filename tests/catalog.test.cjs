@@ -11,7 +11,7 @@ const req=(path,body,extra={})=>new Request('https://test.example/api/admin/'+pa
  assert.equal((await admin(req('bootstrap',{}, {'origin':'https://other.example'}),['bootstrap'])).status,403);
  assert.equal((await admin(req('bootstrap',{}, {'oai-authenticated-user-email':'other@example.test'}),['bootstrap'])).status,403);
  assert.equal((await admin(req('bootstrap',{}),['bootstrap'])).status,200);
- let c=await(await catalog()).json();assert.equal(c.categories.length,4);assert.equal(c.products.length,0);
+ let c=await(await catalog()).json();assert.equal(c.categories.length,16);assert.equal(c.products.length,0);
  const form=new FormData();form.set('image',new File([Buffer.from('89504e470d0a1a0a00000000','hex')],'sample.png',{type:'image/png'}));
  const h={...headers};delete h['content-type'];const uploaded=await(await admin(new Request('https://test.example/api/admin/image',{method:'POST',headers:h,body:form}),['image'])).json();assert.ok(uploaded.key);
  const secondForm=new FormData();secondForm.set('image',new File([Buffer.from('89504e470d0a1a0a00000000','hex')],'second.png',{type:'image/png'}));const second=await(await admin(new Request('https://test.example/api/admin/image',{method:'POST',headers:h,body:secondForm}),['image'])).json();
@@ -21,11 +21,15 @@ const req=(path,body,extra={})=>new Request('https://test.example/api/admin/'+pa
  assert.equal((await image(new Request('https://test.example/api/images/'+second.key),second.key)).status,404);
  p.status='published';assert.equal((await admin(req('product',p),['product'])).status,200);assert.equal((await(await catalog()).json()).products.length,1);assert.equal((await image(new Request('https://test.example/api/images/'+uploaded.key),uploaded.key)).status,200);
  assert.equal((await(await catalog()).json()).products[0].images.length,2);assert.equal((await image(new Request('https://test.example/api/images/'+second.key),second.key)).status,200);
- await admin(req('category',{id:'character',name:'굿즈 분류 수정',sort_order:0}),['category']);c=await(await catalog()).json();assert.equal(c.categories[0].name,'굿즈 분류 수정');assert.equal(c.products[0].category_id,'character');
+ await admin(req('category',{id:'character',name:'굿즈 분류 수정',sort_order:0}),['category']);c=await(await catalog()).json();assert.equal(c.categories.find(x=>x.id==='character').name,'굿즈 분류 수정');assert.equal(c.products[0].category_id,'character');
  p.status='archived';await admin(req('product',p),['product']);assert.equal((await(await catalog()).json()).products.length,0);
  assert.equal((await admin(req('product',{...p,category_id:'missing'}),['product'])).status,400);
+ const nested=await(await admin(req('category',{id:'test-child',parent_id:'character',name:'테스트 소분류'}),['category'])).json();assert.equal(nested.id,'test-child');
+ assert.equal((await admin(req('category',{parent_id:'test-child',name:'금지된 3단계 분류'}),['category'])).status,400);
+ const childProduct={...p,id:'child-product',category_id:'test-child',status:'published'};await admin(req('product',childProduct),['product']);assert.equal((await(await catalog()).json()).products[0].category_id,'test-child');
+ childProduct.status='archived';await admin(req('product',childProduct),['product']);
  for(let i=0;i<50;i++)await admin(req('category',{id:'group-'+i,name:'상품군 '+i,sort_order:10+i}),['category']);
- assert.equal((await(await catalog()).json()).categories.length,54);
+ assert.equal((await(await catalog()).json()).categories.length,67);
  const retry={...p,id:'same-batch-photo',category_id:'group-49',status:'published'};await admin(req('product',retry),['product']);await admin(req('product',retry),['product']);assert.equal((await(await catalog()).json()).products.length,1);
  console.log('PASS: multi-image persistence and secondary image visibility; owner access, CSRF rejection, categories, photo storage, draft/publish/archive persistence, image visibility, category rename, invalid category');
 })().catch(e=>{console.error(e);process.exit(1)});
