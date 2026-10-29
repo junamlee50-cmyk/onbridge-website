@@ -1,5 +1,5 @@
 from pathlib import Path
-p=Path('/workspace/sites/onbridge/dist/assets')
+p=Path(__file__).resolve().parent/'public/assets'
 start='''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 330"><defs><linearGradient id="paper" x1="0" x2="1" y2="1"><stop stop-color="#fffdf6"/><stop offset="1" stop-color="#dcd4bf"/></linearGradient><linearGradient id="navy" x2="1" y2="1"><stop stop-color="#294357"/><stop offset="1" stop-color="#0b1f33"/></linearGradient><filter id="s"><feDropShadow dx="4" dy="12" stdDeviation="9" flood-color="#1b2832" flood-opacity=".13"/></filter></defs><ellipse cx="205" cy="282" rx="108" ry="11" fill="#c8c5b8" opacity=".35"/>'''
 end='</svg>'
 arts={

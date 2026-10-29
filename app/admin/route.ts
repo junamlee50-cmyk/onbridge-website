@@ -1,0 +1,4 @@
+import {isOwner} from '../catalog-server';
+import {adminHtml} from './view';
+export const dynamic='force-dynamic';
+export function GET(request:Request){if(!isOwner(request))return new Response('<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>온브릿지 관리자 로그인</title><body style="font:16px sans-serif;background:#f8f5ef;color:#0b1f33;padding:10%"><h1>상품 관리자 로그인</h1><p>온브릿지 사이트 소유자 계정으로 로그인해 주세요.</p><a href="/signin-with-chatgpt?return_to=%2Fadmin" target="_top">ChatGPT로 로그인</a><p><a href="/">홈페이지로 돌아가기</a></p></body></html>',{status:403,headers:{'content-type':'text/html;charset=utf-8','cache-control':'no-store'}});return new Response(adminHtml,{headers:{'content-type':'text/html;charset=utf-8','cache-control':'no-store','x-robots-tag':'noindex'}});}
