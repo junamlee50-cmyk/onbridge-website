@@ -1,4 +1,6 @@
-import products from './suryugi-data.json';
+import suryugiProducts from './suryugi-data.json';
+import examples from './catalog-examples.json';
+const products = [...suryugiProducts, ...examples];
 
 // Approved one-time catalog import. Existing edits and visibility always win.
 let pending: Promise<void> | undefined;

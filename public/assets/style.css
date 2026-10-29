@@ -16,3 +16,5 @@
 .subfilters{margin:-5px 0 25px;gap:8px}.subfilters[hidden]{display:none}.subfilters button{border:1px solid #d7d4cb;background:transparent;font-size:11px;padding:6px 12px}.subfilters .active{background:#e8e0d0;color:#0b1f33;border-color:#c5a36a}
 
 .detail-copy>p,.detail-copy dd{white-space:pre-line}.image-zoom{font-size:12px;text-align:center;text-decoration:underline;text-underline-offset:4px}
+
+.reference-source{display:inline-block;margin-top:14px;font-size:12px;color:var(--navy);text-decoration:underline;text-underline-offset:4px}
