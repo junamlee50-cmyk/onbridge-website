@@ -43,3 +43,7 @@ yarn-error.log*
 
 # OS metadata
 .DS_Store
+
+# Encoded catalog data retains these photos; avoid duplicated binaries.
+catalog-photos/*.webp
+catalog-photos/*.jpg

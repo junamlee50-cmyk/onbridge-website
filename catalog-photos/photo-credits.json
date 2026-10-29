@@ -1,0 +1,26 @@
+[
+  {
+    "id": "food-example-water",
+    "credit": "Steve A Johnson / Unsplash",
+    "source": "https://unsplash.com/photos/clear-drinking-bottle-filled-with-water-N-MqWXXZvNY",
+    "license": "https://unsplash.com/license"
+  },
+  {
+    "id": "food-example-juice",
+    "credit": "Dilip Modhavadiya / WordPress Photo Directory",
+    "source": "https://wordpress.org/photos/photo/696ae0ab64/",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "food-example-cookies",
+    "credit": "mdburnette / WordPress Photo Directory",
+    "source": "https://wordpress.org/photos/photo/2356221fc0/",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  {
+    "id": "food-example-bakery",
+    "credit": "Reyes Martínez / WordPress Photo Directory",
+    "source": "https://wordpress.org/photos/photo/48622cf2ae/",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+  }
+]

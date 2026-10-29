@@ -1,0 +1,379 @@
+{
+  "sources": [
+    {
+      "file": "image(7).png",
+      "photo_bounds_y": [
+        0,
+        345
+      ]
+    },
+    {
+      "file": "image(8).png",
+      "photo_bounds_y": [
+        0,
+        340
+      ]
+    },
+    {
+      "file": "image(9).png",
+      "photo_bounds_y": [
+        13,
+        353
+      ]
+    },
+    {
+      "file": "image(10).png",
+      "photo_bounds_y": [
+        0,
+        344
+      ]
+    },
+    {
+      "file": "image(20261029-081652).png",
+      "photo_bounds_y": [
+        7,
+        347
+      ]
+    },
+    {
+      "file": "image(20261029-081701).png",
+      "photo_bounds_y": [
+        43,
+        382
+      ]
+    },
+    {
+      "file": "image(20261029-081710).png",
+      "photo_bounds_y": [
+        13,
+        353
+      ]
+    },
+    {
+      "file": "image(20261029-081718).png",
+      "photo_bounds_y": [
+        7,
+        347
+      ]
+    },
+    {
+      "file": "image(20261029-081730).png",
+      "photo_bounds_y": [
+        19,
+        359
+      ]
+    },
+    {
+      "file": "image(20261029-081741).png",
+      "photo_bounds_y": [
+        13,
+        353
+      ]
+    },
+    {
+      "file": "image(20261029-081755).png",
+      "photo_bounds_y": [
+        44,
+        384
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "uploaded-bob-figure",
+      "name": "BOB 캐릭터 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-01-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-bob-keyring",
+      "name": "BOB 캐릭터 키링",
+      "category_id": "sub-keyring",
+      "photos": [
+        "goods-01-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-color",
+      "name": "몰랑 컬러 캐릭터 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-01-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-sweet",
+      "name": "몰랑 과일·스위트 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-01-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-panda-figure",
+      "name": "모찌모찌 판다 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-02-1.webp",
+        "goods-02-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-panda-keyring",
+      "name": "모찌모찌 판다 키홀더",
+      "category_id": "sub-keyring",
+      "photos": [
+        "goods-02-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-cat-figure",
+      "name": "구루구루 구루냥 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-02-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-daily",
+      "name": "몰랑 일상 테마 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-03-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-bakery",
+      "name": "몰랑 베이커리 테마 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-03-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-cat",
+      "name": "몰랑 고양이 테마 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-03-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-strap",
+      "name": "몰랑 스트랩",
+      "category_id": "sub-character-accessory",
+      "photos": [
+        "goods-03-4.webp",
+        "goods-05-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-toothbrush",
+      "name": "몰랑 장화 칫솔 꽂이",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-04-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-fruit-keyring",
+      "name": "몰랑 과일 키홀더",
+      "category_id": "sub-keyring",
+      "photos": [
+        "goods-04-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-nametag",
+      "name": "몰랑 네임택",
+      "category_id": "sub-character-accessory",
+      "photos": [
+        "goods-04-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-large",
+      "name": "몰랑 대형 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-04-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-earphone",
+      "name": "몰랑 듀얼 이어폰잭",
+      "category_id": "sub-character-accessory",
+      "photos": [
+        "goods-05-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-memo",
+      "name": "몰랑 메모 꽂이",
+      "category_id": "sub-note",
+      "photos": [
+        "goods-05-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-clip",
+      "name": "몰랑 문구 클립",
+      "category_id": "sub-note",
+      "photos": [
+        "goods-05-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-coaster",
+      "name": "몰랑 캐릭터 컵받침",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-06-1.webp",
+        "goods-08-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-spatula",
+      "name": "몰랑 소분통·스패츌라",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-06-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-mirror",
+      "name": "몰랑 손거울",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-06-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-wrist",
+      "name": "몰랑 손목 쿠션",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-06-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-solar",
+      "name": "몰랑 솔라 토이",
+      "category_id": "sub-character-accessory",
+      "photos": [
+        "goods-07-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-lock",
+      "name": "몰랑 자물쇠",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-07-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-freshener",
+      "name": "몰랑 종이 방향제",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-07-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-belt",
+      "name": "몰랑 캐리어 벨트",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-07-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-cork",
+      "name": "몰랑 코르크 컵받침",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-08-1.webp",
+        "goods-08-3.webp",
+        "goods-08-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-pushpop",
+      "name": "몰랑 푸쉬팝",
+      "category_id": "sub-character-accessory",
+      "photos": [
+        "goods-09-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-mug",
+      "name": "몰랑 머그컵",
+      "category_id": "sub-living",
+      "photos": [
+        "goods-09-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-party",
+      "name": "몰랑 파티 테마 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-09-3.webp",
+        "goods-09-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-wonderland",
+      "name": "몰랑 인 원더랜드 마그넷 세트",
+      "category_id": "sub-magnet",
+      "photos": [
+        "goods-10-1.webp",
+        "goods-10-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-forest",
+      "name": "숲속의 몰랑 마그넷 세트",
+      "category_id": "sub-magnet",
+      "photos": [
+        "goods-10-3.webp",
+        "goods-10-4.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-camping",
+      "name": "몰랑이와 통기타 캠핑 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-11-1.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-halloween",
+      "name": "오싹오싹 몰랑이 할로윈 랜덤 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-11-2.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-winter",
+      "name": "포근포근 몰랑몰랑 랜덤 피규어",
+      "category_id": "sub-figure",
+      "photos": [
+        "goods-11-3.webp"
+      ]
+    },
+    {
+      "id": "uploaded-molang-stars",
+      "name": "몰랑이와 별자리 열쇠고리",
+      "category_id": "sub-keyring",
+      "photos": [
+        "goods-11-4.webp"
+      ]
+    }
+  ]
+}
