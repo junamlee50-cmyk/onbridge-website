@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict');const fs=require('node:fs');const ts=require('typescript');const{DatabaseSync}=require('node:sqlite');
-const sqlite=new DatabaseSync(':memory:');sqlite.exec(fs.readFileSync('drizzle/0000_numerous_lenny_balinger.sql','utf8'));
+const sqlite=new DatabaseSync(':memory:');for(const name of fs.readdirSync('drizzle').filter(n=>n.endsWith('.sql')).sort())sqlite.exec(fs.readFileSync('drizzle/'+name,'utf8'));
 const objects=new Map();const bucket={async put(k,b,o){objects.set(k,{bytes:b,httpMetadata:o.httpMetadata})},async head(k){return objects.has(k)?{}:null},async get(k){const x=objects.get(k);return x?{body:x.bytes,httpMetadata:x.httpMetadata}:null}};
 const DB={prepare(sql){let values=[];return{bind(...v){values=v;return this},async run(){sqlite.prepare(sql).run(...values);return{success:true}},async all(){return{results:sqlite.prepare(sql).all(...values)}},async first(){return sqlite.prepare(sql).get(...values)||null}}},async batch(statements){for(const s of statements)await s.run()}};
 const env={DB,BUCKET:bucket,ADMIN_EMAIL:'owner@example.test'};let exportsObject={};const code=ts.transpileModule(fs.readFileSync('app/catalog-server.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
@@ -14,12 +14,18 @@ const req=(path,body,extra={})=>new Request('https://test.example/api/admin/'+pa
  let c=await(await catalog()).json();assert.equal(c.categories.length,4);assert.equal(c.products.length,0);
  const form=new FormData();form.set('image',new File([Buffer.from('89504e470d0a1a0a00000000','hex')],'sample.png',{type:'image/png'}));
  const h={...headers};delete h['content-type'];const uploaded=await(await admin(new Request('https://test.example/api/admin/image',{method:'POST',headers:h,body:form}),['image'])).json();assert.ok(uploaded.key);
- const p={name:'검수 <상품>',category_id:'character',description:'검수용 상품',spec:'검수 규격',packing:'검수 포장',price:'공급 조건 문의',status:'draft',image_key:uploaded.key};
+ const secondForm=new FormData();secondForm.set('image',new File([Buffer.from('89504e470d0a1a0a00000000','hex')],'second.png',{type:'image/png'}));const second=await(await admin(new Request('https://test.example/api/admin/image',{method:'POST',headers:h,body:secondForm}),['image'])).json();
+ const p={name:'검수 <상품>',category_id:'character',description:'검수용 상품',spec:'검수 규격',packing:'검수 포장',price:'공급 조건 문의',status:'draft',image_key:uploaded.key,image_keys:[uploaded.key,second.key]};
  let saved=await(await admin(req('product',p),['product'])).json();assert.ok(saved.id);p.id=saved.id;
  assert.equal((await(await catalog()).json()).products.length,0);assert.equal((await image(new Request('https://test.example/api/images/'+uploaded.key),uploaded.key)).status,404);
+ assert.equal((await image(new Request('https://test.example/api/images/'+second.key),second.key)).status,404);
  p.status='published';assert.equal((await admin(req('product',p),['product'])).status,200);assert.equal((await(await catalog()).json()).products.length,1);assert.equal((await image(new Request('https://test.example/api/images/'+uploaded.key),uploaded.key)).status,200);
+ assert.equal((await(await catalog()).json()).products[0].images.length,2);assert.equal((await image(new Request('https://test.example/api/images/'+second.key),second.key)).status,200);
  await admin(req('category',{id:'character',name:'굿즈 분류 수정',sort_order:0}),['category']);c=await(await catalog()).json();assert.equal(c.categories[0].name,'굿즈 분류 수정');assert.equal(c.products[0].category_id,'character');
  p.status='archived';await admin(req('product',p),['product']);assert.equal((await(await catalog()).json()).products.length,0);
  assert.equal((await admin(req('product',{...p,category_id:'missing'}),['product'])).status,400);
- console.log('PASS: owner access, CSRF rejection, categories, photo storage, draft/publish/archive persistence, image visibility, category rename, invalid category');
+ for(let i=0;i<50;i++)await admin(req('category',{id:'group-'+i,name:'상품군 '+i,sort_order:10+i}),['category']);
+ assert.equal((await(await catalog()).json()).categories.length,54);
+ const retry={...p,id:'same-batch-photo',category_id:'group-49',status:'published'};await admin(req('product',retry),['product']);await admin(req('product',retry),['product']);assert.equal((await(await catalog()).json()).products.length,1);
+ console.log('PASS: multi-image persistence and secondary image visibility; owner access, CSRF rejection, categories, photo storage, draft/publish/archive persistence, image visibility, category rename, invalid category');
 })().catch(e=>{console.error(e);process.exit(1)});
